@@ -1,0 +1,25 @@
+version: '3'
+services:
+  phonebook-backend:
+    container_name: phonebook-backend
+    restart: always
+    build: /backend
+    ports:
+      - '3000:3000'
+    external_links:
+      - mongo
+      - phonebook-frontend
+  phonebook-frontend:
+    container_name: phonebook-frontend
+    build:
+      context: /frontend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '80:80'
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
+
