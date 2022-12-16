@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row mx-auto col-md-4">
+    <img id="imageBase64" class="rounded-circle" style="width: 146px; height: 123px; margin: auto;" src="{{items.photo}}" alt="Generic placeholder image" />
+
+    <h5 id="changeName" class="mt-2 font-18 mb-1 text-center">{{items.name}}</h5>
+    <p id="changeJob" class="text-muted font-14 text-center">{{items.job}}</p>
+  </div>
+
+  <hr>
+
+  <div class="row mx-auto col-md-4">,
+
+    <ul class="social-links list-inline mb-0">
+      <li class="list-inline-item" *ngFor="let social of items.items">
+          <i  class="fa {{social.icon}} text-dark px-3" style="font-size: 200%;"></i>
+      </li>
+      <li class="list-inline-item">
+          <i  class="fa fa-pencil-square-o text-dark px-3" (click)="edit(items._id)" style="font-size: 200%;"></i>
+      </li>
+      <li class="list-inline-item">
+        <i  class="fa fa-trash-o text-dark px-3" (click)="delete(items._id)" style="font-size: 200%;"></i>
+      </li>
+    </ul>
+
+  </div>
+
+  <hr>
+
+  <div class="row mx-auto">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">İcon</th>
+        <th scope="col">Type</th>
+        <th scope="col">Value</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let social of items.items">
+        <th scope="row">1</th>
+        <td><i  class="fa {{social.icon}} text-dark px-3"></i></td>
+        <td>{{social.type}}</td>
+        <td>{{social.value}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

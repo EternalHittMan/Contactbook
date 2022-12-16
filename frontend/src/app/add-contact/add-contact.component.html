@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row mx-auto col-md-4">
+
+    <img class="rounded-circle" id="imageBase64" style="width: 146px; height: 123px; margin: auto;" src="{{image}}" alt="Generic placeholder image" />
+    <i style="margin-left: 60%; text-decoration: none;" (click)="openFile()"
+       class="fa fa-pencil-square-o text-dark"
+       aria-hidden="true"></i>
+    <h5 id="changeName" class="mt-2 font-18 mb-1 text-center"><a (click)="onChangeName()"
+                                                 class="fa fa-pencil-square-o text-dark"
+                                                 style="text-decoration: none;"
+                                                 aria-hidden="true"></a>{{name}}</h5>
+    <p id="changeJob" class="text-muted font-14 text-center"><a (click)="onChangeJob()"
+                                                 class="fa fa-pencil-square-o text-dark"
+                                                 style="text-decoration: none;"
+                                                 aria-hidden="true"></a>{{job}}</p>
+
+  </div>
+
+  <hr>
+
+  <div class="row mx-auto">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Icon</th>
+        <th scope="col">Type</th>
+        <th scope="col">Value</th>
+        <th scope="col">Delete</th>
+
+      </tr>
+      </thead>
+      <tbody>
+
+          <tr *ngFor="let item of items; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <th scope="col"><i style="text-decoration: none;" class="fa {{item.icon}} text-dark px-3"> </i></th>
+            <th scope="col">{{item.type}}</th>
+            <th scope="col">{{item.value}}</th>
+            <th scope="col"><a class="fa fa-trash text-dark" (click)="removeFromItem(item)"></a></th>
+
+          </tr>
+
+      </tbody>
+    </table>
+    <hr>
+    <div class="mx-auto col-lg-2">
+      <i (click)="addItem()" style="font-size: 200%; text-decoration: none;" class="fa fa-plus text-dark px-3"> </i>
+      <i (click)="save();" class="fa fa-save text-dark" style="font-size: 200%; text-decoration: none;" aria-hidden="true"></i>
+    </div>
+
+  </div>
+
+</div>
+
+<input id="inputValue" type="file" style="display:none" (change)="onUploadFile($event)">
+
+

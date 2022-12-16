@@ -1,0 +1,44 @@
+
+<div  class="container">
+    <div class="row">
+      <div *ngFor="let item of items" class="col-lg-4"  >
+  <div class="card m-b-30" (click)="contactInfo(item._id)">
+    <div class="card-body">
+      <div class="clear-fix">
+      <div class="media ">
+
+       <a href="/" (click)="toggleFavorite(item._id, !item.favorite)" style="text-decoration: none; color: black;">
+
+         <div *ngIf="item.favorite == false else favoriteStar">
+         <i class="fa fa-star-o top-100 float-right pull-right"  aria-hidden="true"></i>
+         </div>
+
+         <ng-template #favoriteStar><i class="fa fa-star top-100 float-right pull-right"  aria-hidden="true"></i></ng-template>
+
+
+       </a>
+
+        <div class="photo pull-left">
+          <img class="d-flex mr-3 rounded-circle img-thumbnail thumb-lg" src="{{item.photo}}" alt="Generic placeholder image" />
+
+        </div>
+
+        <div class="text" style="margin-left: 30%;">
+          <h5 class="mt-0 font-18 mb-1">{{item.name}}</h5>
+          <p class="text-muted font-14">{{item.job}}</p>
+
+          <ul class="social-links list-inline mb-0">
+            <li class="list-inline-item" *ngFor="let social of item.items">
+              <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" ><i class="fa {{social.icon}}"></i></a>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
